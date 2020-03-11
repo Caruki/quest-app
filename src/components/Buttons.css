@@ -1,0 +1,25 @@
+.redirectButton {
+  background-color: rgba(164, 173, 235, 1);
+  border-radius: 35px;
+  width: 130px;
+  height: 60px;
+  outline: none;
+  font-size: 20px;
+  align-self: flex-end;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  justify-content: center;
+}
+
+.navButton {
+  background-color: rgba(164, 173, 235, 1);
+  border-radius: 35px;
+  width: 500px;
+  height: 100px;
+  outline: none;
+  font-size: 20px;
+}
