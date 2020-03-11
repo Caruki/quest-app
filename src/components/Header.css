@@ -16,20 +16,12 @@
 .logo {
   height: 50px;
   margin: 10px;
-  -webkit-transition: rotate 1.5s ease-in-out;
-  -moz-transition: rotate 1.5s ease-in-out;
-  -o-transition: rotate 1.5s ease-in-out;
-  transition: rotate 1.5s ease-in-out;
 }
 
 .logo:hover {
-  transform: rotate(30deg);
+  transform: rotate(30deg) translate(10%);
 }
 
-.fliphorizontally {
-  transform: scaleX(-1);
-}
-
-.fliphorizontally:hover {
-  transform: rotate(90deg);
+.logoflipped:hover {
+  transform: rotate(-30deg) translate(10%);
 }
