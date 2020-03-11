@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+}
+
+.title {
+  font-family: "Fondamento", cursive;
+  color: #ef4e6d;
+  font-size: 1.8rem;
+  margin: 5px;
+  text-align: center;
+}
+
+.logo {
+  height: 50px;
+  margin: 10px;
+}
+
+.fliphorizontally {
+  transform: scaleX(-1);
+}
