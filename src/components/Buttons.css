@@ -1,10 +1,10 @@
-.redirectButton {
+.button {
   background-color: rgba(164, 173, 235, 1);
   border-radius: 35px;
-  width: 130px;
-  height: 60px;
+  width: 150px;
+  height: 40px;
   outline: none;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   align-self: flex-end;
   border: transparent;
   font-family: "Lato", sans-serif;
