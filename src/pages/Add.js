@@ -17,9 +17,17 @@ export default function Add() {
     optionThree: optionThree
   };
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
-    alert(JSON.stringify(poll));
+    let response = await fetch('http://localhost:4000/polls', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(poll)
+    });
+    let result = await response.json();
+    console.log(result);
   }
   return (
     <>

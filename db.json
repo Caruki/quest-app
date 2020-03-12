@@ -1,0 +1,18 @@
+{
+  "polls": [
+    {
+      "id": 1,
+      "question": "How much is the fish?",
+      "answerOne": "8$",
+      "answerTwo": "5 Pounds",
+      "answerThree": "99 bucks"
+    },
+    {
+      "question": "What is your favourite food?",
+      "optionOne": "Burger",
+      "optionTwo": "Pasta",
+      "optionThree": "Pizza",
+      "id": 2
+    }
+  ]
+}
