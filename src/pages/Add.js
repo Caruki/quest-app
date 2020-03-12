@@ -19,7 +19,7 @@ export default function Add() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    let response = await fetch('http://localhost:4000/polls', {
+    let response = await fetch(process.env.REACT_APP_POLLS_API, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json;charset=utf-8'
