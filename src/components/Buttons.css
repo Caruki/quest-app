@@ -5,7 +5,7 @@
   height: 40px;
   outline: none;
   font-size: 0.8rem;
-  align-self: flex-end;
+
   border: transparent;
   font-family: "Lato", sans-serif;
   font-weight: 300;
@@ -25,12 +25,12 @@
 .navButton {
   background-color: rgba(164, 173, 235, 1);
   border-radius: 35px;
-  width: 100%;
+  width: 85%;
   height: 50px;
   outline: none;
   font-size: 1.1rem;
   border: transparent;
-  margin-top: 10px;
+  margin-top: 20px;
   font-family: "Lato", sans-serif;
   font-weight: 300;
 }
