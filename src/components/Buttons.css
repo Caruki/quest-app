@@ -4,13 +4,19 @@
   width: 130px;
   height: 60px;
   outline: none;
-  font-size: 20px;
+  font-size: 0.9rem;
   align-self: flex-end;
+  border: transparent;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  text-align: center;
+  margin: 10px;
 }
 
 .buttonContainer {
   display: flex;
   align-items: center;
+  width: 70%;
   flex-flow: column wrap;
   justify-content: center;
 }
@@ -21,5 +27,9 @@
   width: 500px;
   height: 100px;
   outline: none;
-  font-size: 20px;
+  font-size: 1.1rem;
+  border: transparent;
+  margin: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
 }

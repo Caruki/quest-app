@@ -2,8 +2,10 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-evenly;
   margin-right: 50px;
   margin-left: 50px;
-  height: 300px;
-  background-color: thistle;
+  min-height: 600px;
+  background: transparent;
+  font-family: "Lato", sans-serif;
 }

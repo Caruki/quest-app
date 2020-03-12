@@ -5,11 +5,13 @@ import RedirectButton from "../components/RedirectButton";
 export default function Vote() {
   return (
     <>
-      <Card>{/*<SubmitButton></SubmitButton>*/}</Card>
-      <RedirectButton
-        name="See the results"
-        destination="/result"
-      ></RedirectButton>
+      <Card>
+        {/*<SubmitButton></SubmitButton>*/}
+        <RedirectButton
+          name="See the results"
+          destination="/result"
+        ></RedirectButton>
+      </Card>
     </>
   );
 }

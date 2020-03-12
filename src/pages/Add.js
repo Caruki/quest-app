@@ -6,13 +6,18 @@ import RedirectButton from "../components/RedirectButton";
 export default function Add() {
   return (
     <>
-      <Card>{/*<SubmitButton></SubmitButton>*/}</Card>
+      <Card>
+        {/*<SubmitButton></SubmitButton>*/}
 
-      <RedirectButton name="Go to voting" destination="/vote"></RedirectButton>
-      <RedirectButton
-        name="See results of this poll"
-        destination="/result"
-      ></RedirectButton>
+        <RedirectButton
+          name="Go to voting"
+          destination="/vote"
+        ></RedirectButton>
+        <RedirectButton
+          name="See results of this poll"
+          destination="/result"
+        ></RedirectButton>
+      </Card>
     </>
   );
 }
