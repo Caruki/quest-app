@@ -1,0 +1,21 @@
+.heading {
+  font-size: 1.6rem;
+  color: #f3cfd6;
+  font-family: "Fondamento", cursive;
+  letter-spacing: 0.5rem;
+}
+
+.welcome {
+  font-size: 1.3rem;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  color: rgba(228, 230, 250, 1);
+  text-align: center;
+}
+
+.textContainer {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
+}
