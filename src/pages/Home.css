@@ -1,5 +1,5 @@
 .heading {
-  font-size: 1.7rem;
+  font-size: 1.6rem;
   color: #f3cfd6;
   font-family: "Fondamento", cursive;
   letter-spacing: 0.5rem;
@@ -14,7 +14,7 @@
 }
 
 .textContainer {
-  width: 70%;
+  width: 100%;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
