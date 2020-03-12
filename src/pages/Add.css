@@ -1,0 +1,45 @@
+.add-form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  min-height: 300px;
+  margin: 30px;
+  width: 80%;
+  outline: none;
+}
+
+input.add-form_input::placeholder {
+  color: rgba(239, 78, 110, 0.432);
+  font-family: "Lato", sans-serif;
+}
+
+.add-form_input {
+  margin-bottom: 30px;
+  padding-left: 15px;
+  outline: none;
+  border: transparent;
+  color: rgba(124, 37, 54, 1);
+  font-size: 0.8rem;
+}
+
+.add-form_input-question {
+  border-radius: 30px;
+  height: 65px;
+  width: 100%;
+  background-color: rgba(228, 230, 250, 1);
+}
+
+.add-form_input-answer {
+  background-color: rgba(228, 230, 250, 1);
+  height: 30px;
+  width: 85%;
+  padding: 10px;
+  text-align: center;
+}
+
+.redirect-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  align-items: flex-start;
+}

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Buttons.css';
+import Button from '../components/Button';
 import { useHistory } from 'react-router-dom';
 
 export default function RedirectButton(props) {
@@ -10,12 +10,11 @@ export default function RedirectButton(props) {
   }
 
   return (
-    <button
-      type="button"
-      className={props.className || 'redirectButton'}
+    <Button
+      className={props.className || 'button'}
       onClick={() => handleClick(props.destination)}
     >
       {props.name}
-    </button>
+    </Button>
   );
 }
