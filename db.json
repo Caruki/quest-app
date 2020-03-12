@@ -15,18 +15,11 @@
       "id": 2
     },
     {
-      "question": "",
-      "optionOne": "",
-      "optionTwo": "",
-      "optionThree": "",
+      "question": "What is your favourite place?",
+      "optionOne": "Home",
+      "optionTwo": "School",
+      "optionThree": "Library",
       "id": 3
-    },
-    {
-      "question": "",
-      "optionOne": "",
-      "optionTwo": "",
-      "optionThree": "",
-      "id": 4
     }
   ]
 }

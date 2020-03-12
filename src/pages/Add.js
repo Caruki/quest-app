@@ -19,15 +19,19 @@ export default function Add() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    let response = await fetch('http://localhost:4000/polls', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(poll)
-    });
-    let result = await response.json();
-    console.log(result);
+    let response = await fetch(
+      process.env.REACT_APP_POLLS_API ||
+        'https://my-json-server.typicode.com/Caruki/quest-app/polls',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(poll)
+      }
+    );
+    let createdPoll = await response.json();
+    alert(`A new poll with the ID ${createdPoll.id} was created!`);
   }
   return (
     <>
