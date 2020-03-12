@@ -2,7 +2,6 @@
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-
   margin-right: 50px;
   margin-left: 50px;
   min-height: 600px;

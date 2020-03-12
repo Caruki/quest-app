@@ -3,4 +3,7 @@ body {
   background-image: linear-gradient(to bottom right, #303e69, #08153b);
   height: 100vh;
   overflow: hidden;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
 }
