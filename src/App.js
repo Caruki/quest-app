@@ -10,23 +10,25 @@ import Home from './pages/Home';
 function App() {
   return (
     <Router>
-      <Header />
-      <main className="main">
-        <Switch>
-          <Route path="/result">
-            <Result />
-          </Route>
-          <Route path="/add">
-            <Add />
-          </Route>
-          <Route path="/vote">
-            <Vote />
-          </Route>
-          <Route exact path="/">
-            <Home />
-          </Route>
-        </Switch>
-      </main>
+      <div className="container">
+        <Header />
+        <main className="main">
+          <Switch>
+            <Route path="/result">
+              <Result />
+            </Route>
+            <Route path="/add">
+              <Add />
+            </Route>
+            <Route path="/vote">
+              <Vote />
+            </Route>
+            <Route exact path="/">
+              <Home />
+            </Route>
+          </Switch>
+        </main>
+      </div>
     </Router>
   );
 }

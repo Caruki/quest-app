@@ -4,13 +4,14 @@
   align-items: center;
   min-height: 300px;
   margin: 30px;
+  margin-bottom: 15px;
   width: 80%;
   outline: none;
 }
 
 input.add-form_input::placeholder {
   color: rgba(239, 78, 110, 0.432);
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .add-form_input {
@@ -39,7 +40,7 @@ input.add-form_input::placeholder {
 
 .redirect-container {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: space-around;
-  align-items: flex-start;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 90%;
 }
