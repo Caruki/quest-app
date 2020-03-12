@@ -1,14 +1,14 @@
-import React from "react";
-import "./Add.css";
-import Card from "../components/Card";
-import RedirectButton from "../components/RedirectButton";
-import Button from "../components/Button";
+import React from 'react';
+import './Add.css';
+import Card from '../components/Card';
+import RedirectButton from '../components/RedirectButton';
+import Button from '../components/Button';
 
 export default function Add() {
-  const [question, setQuestion] = React.useState("");
-  const [optionOne, setOptionOne] = React.useState("");
-  const [optionTwo, setOptionTwo] = React.useState("");
-  const [optionThree, setOptionThree] = React.useState("");
+  const [question, setQuestion] = React.useState('');
+  const [optionOne, setOptionOne] = React.useState('');
+  const [optionTwo, setOptionTwo] = React.useState('');
+  const [optionThree, setOptionThree] = React.useState('');
 
   const poll = {
     question: question,

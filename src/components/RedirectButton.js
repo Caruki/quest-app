@@ -1,6 +1,6 @@
-import React from "react";
-import Button from "../components/Button";
-import { useHistory } from "react-router-dom";
+import React from 'react';
+import Button from '../components/Button';
+import { useHistory } from 'react-router-dom';
 
 export default function RedirectButton(props) {
   let history = useHistory();
@@ -11,7 +11,7 @@ export default function RedirectButton(props) {
 
   return (
     <Button
-      className={props.className || "button"}
+      className={props.className || 'button'}
       onClick={() => handleClick(props.destination)}
     >
       {props.name}
