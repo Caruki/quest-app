@@ -1,6 +1,12 @@
-.main {
+.container {
   display: flex;
   flex-flow: column nowrap;
-  overflow: scroll;
+  height: 100vh;
+}
+
+.main {
+  overflow: auto;
+  display: flex;
+  flex-flow: column nowrap;
   flex-grow: 1;
 }
