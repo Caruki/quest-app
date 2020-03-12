@@ -1,7 +1,7 @@
-import React from "react";
-import "./Header.css";
-import Chimera from "./chimera.svg";
-import ChimeraFlipped from "./chimeraflipped.svg";
+import React from 'react';
+import './Header.css';
+import Chimera from './chimera.svg';
+import ChimeraFlipped from './chimeraflipped.svg';
 
 function Header() {
   return (

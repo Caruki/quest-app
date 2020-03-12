@@ -1,8 +1,8 @@
-import React from "react";
-import Card from "../components/Card";
-import "../components/Buttons.css";
-import RedirectButton from "../components/RedirectButton";
-import "./Home.css";
+import React from 'react';
+import Card from '../components/Card';
+import '../components/Buttons.css';
+import RedirectButton from '../components/RedirectButton';
+import './Home.css';
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <div className="welcome">
           <p>
             Here you can become your very own questing beast by making polls or
-            answering other's questions.{" "}
+            answering other's questions.{' '}
           </p>
           <p>Please choose one:</p>
         </div>

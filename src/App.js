@@ -1,11 +1,11 @@
-import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./App.css";
-import Header from "./components/header/Header";
-import Add from "./pages/Add";
-import Vote from "./pages/Vote";
-import Result from "./pages/Result";
-import Home from "./pages/Home";
+import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import './App.css';
+import Header from './components/header/Header';
+import Add from './pages/Add';
+import Vote from './pages/Vote';
+import Result from './pages/Result';
+import Home from './pages/Home';
 
 function App() {
   return (
