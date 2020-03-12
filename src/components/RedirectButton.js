@@ -8,18 +8,11 @@ export default function RedirectButton(props) {
   function handleClick(destination) {
     history.push(destination);
   }
-  function addClass(newClassName) {
-    if (newClassName) {
-      return newClassName;
-    } else {
-      return "redirectButton";
-    }
-  }
 
   return (
     <button
       type="button"
-      className={addClass(props.className)}
+      className={props.className || "redirectButton"}
       onClick={() => handleClick(props.destination)}
     >
       {props.name}
