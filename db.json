@@ -13,20 +13,6 @@
       "optionTwo": "Pasta",
       "optionThree": "Pizza",
       "id": 2
-    },
-    {
-      "question": "",
-      "optionOne": "",
-      "optionTwo": "",
-      "optionThree": "",
-      "id": 3
-    },
-    {
-      "question": "",
-      "optionOne": "",
-      "optionTwo": "",
-      "optionThree": "",
-      "id": 4
     }
   ]
 }

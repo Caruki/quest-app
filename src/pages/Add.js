@@ -26,8 +26,8 @@ export default function Add() {
       },
       body: JSON.stringify(poll)
     });
-    let result = await response.json();
-    console.log(result);
+    let createdPoll = await response.json();
+    alert(`A new poll with the ID ${createdPoll.id} was created!`);
   }
   return (
     <>
