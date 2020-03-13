@@ -9,7 +9,7 @@ export default function Vote() {
         {/*<SubmitButton></SubmitButton>*/}
         <RedirectButton
           name="See the results"
-          destination="/result"
+          destination="/polls/:pollId"
         ></RedirectButton>
       </Card>
     </>

@@ -31,7 +31,7 @@ export default function Home() {
         <RedirectButton
           className="navButton"
           name="See the results of your poll"
-          destination="/result"
+          destination="/polls/:pollId"
         ></RedirectButton>
       </div>
     </Card>

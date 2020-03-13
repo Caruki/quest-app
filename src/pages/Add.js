@@ -85,7 +85,7 @@ export default function Add() {
           ></RedirectButton>
           <RedirectButton
             name="See results of this poll"
-            destination="/result"
+            destination="/polls/:pollId"
           ></RedirectButton>
         </div>
       </Card>

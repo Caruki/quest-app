@@ -14,7 +14,7 @@ function App() {
         <Header />
         <main className="main">
           <Switch>
-            <Route path="/result">
+            <Route path="/polls/:pollId">
               <Result />
             </Route>
             <Route path="/add">
