@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import RedirectButton from '../components/RedirectButton';
+import Form from '../components/Form';
 
 export default function Vote() {
   return (
@@ -39,6 +40,14 @@ export default function Vote() {
         </Label>
         <Button>Vote {answer}</Button>
       </Form>
+      <RedirectButton
+        name="Create your own poll"
+        destination="/add"
+      ></RedirectButton>
+      <RedirectButton
+        name="Go back to overview"
+        destination="/"
+      ></RedirectButton>
     </Card>
   );
 }
