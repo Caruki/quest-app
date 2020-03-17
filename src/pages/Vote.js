@@ -1,12 +1,17 @@
 import React from 'react';
 import Card from '../components/Card';
 import { useParams, useHistory } from 'react-router-dom';
-import Form from '../components/Form';
+import { Form, FormVoteQuestion } from '../components/Form';
 import styled from '@emotion/styled';
 import Button from '../components/Button';
 
 const Label = styled.label`
   display: block;
+`;
+
+const Input = styled.input`
+  opacity: 0;
+  position: absolute;
 `;
 
 const pollApiURL =
@@ -46,9 +51,9 @@ export default function Vote() {
   return (
     <Card>
       <Form onSubmit={handleSubmit}>
-        <h2>{poll?.question}</h2>
+        <FormVoteQuestion value={poll?.question}></FormVoteQuestion>
         <Label>
-          <input
+          <Input
             type="radio"
             name="answer"
             value="optionOne"
@@ -58,7 +63,7 @@ export default function Vote() {
           {poll?.optionOne}
         </Label>
         <Label>
-          <input
+          <Input
             type="radio"
             name="answer"
             value="optionTwo"
@@ -68,7 +73,7 @@ export default function Vote() {
           {poll?.optionTwo}
         </Label>
         <Label>
-          <input
+          <Input
             type="radio"
             name="answer"
             value="optionThree"
