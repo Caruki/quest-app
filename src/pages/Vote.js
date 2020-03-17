@@ -1,6 +1,13 @@
 import React from 'react';
 import Card from '../components/Card';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
+import Form from '../components/Form';
+import styled from '@emotion/styled';
+import Button from '../components/Button';
+
+const Label = styled.label`
+  display: block;
+`;
 
 const pollApiURL =
   process.env.REACT_APP_POLLS_API ||
@@ -8,7 +15,9 @@ const pollApiURL =
 
 export default function Vote() {
   const { pollId } = useParams();
-  const [poll, setPoll] = React.useState();
+  const history = useHistory();
+  const [poll, setPoll] = React.useState(null);
+  const [answer, setAnswer] = React.useState(null);
 
   React.useEffect(() => {
     async function getPoll() {
@@ -19,23 +28,57 @@ export default function Vote() {
     getPoll();
   }, [pollId]);
 
+  async function handleSubmit(event) {
+    event.preventDefault();
+    const updatedPoll = { ...poll };
+    updatedPoll.votes.push(answer);
+
+    await fetch(`${pollApiURL}/${pollId}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(updatedPoll)
+    });
+    history.push(`/polls/${poll.id}`);
+  }
+
   return (
-    <>
-      <Card>
+    <Card>
+      <Form onSubmit={handleSubmit}>
         <h2>{poll?.question}</h2>
-        <label>
-          <input type="radio" name="answer" value={1} />
+        <Label>
+          <input
+            type="radio"
+            name="answer"
+            value="optionOne"
+            checked={answer === 'optionOne'}
+            onChange={event => setAnswer(event.target.value)}
+          />
           {poll?.optionOne}
-        </label>
-        <label>
-          <input type="radio" name="answer" value={1} />
+        </Label>
+        <Label>
+          <input
+            type="radio"
+            name="answer"
+            value="optionTwo"
+            checked={answer === 'optionTwo'}
+            onChange={event => setAnswer(event.target.value)}
+          />
           {poll?.optionTwo}
-        </label>
-        <label>
-          <input type="radio" name="answer" value={1} />
+        </Label>
+        <Label>
+          <input
+            type="radio"
+            name="answer"
+            value="optionThree"
+            checked={answer === 'optionThree'}
+            onChange={event => setAnswer(event.target.value)}
+          />
           {poll?.optionThree}
-        </label>
-      </Card>
-    </>
+        </Label>
+        <Button>Vote</Button>
+      </Form>
+    </Card>
   );
 }

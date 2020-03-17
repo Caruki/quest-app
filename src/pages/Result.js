@@ -23,6 +23,10 @@ export default function Result() {
   return (
     <Card>
       {poll?.question}
+      <div>{poll?.optionOne}</div>
+      <div>{poll?.optionTwo}</div>
+      <div>{poll?.optionThree}</div>
+
       <RedirectButton
         name="Create your own poll"
         destination="/add"

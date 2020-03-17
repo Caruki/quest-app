@@ -3,6 +3,7 @@ import './Add.css';
 import Card from '../components/Card';
 import RedirectButton from '../components/RedirectButton';
 import Button from '../components/Button';
+import Form from '../components/Form';
 
 export default function Add() {
   const [question, setQuestion] = React.useState('');
@@ -14,7 +15,8 @@ export default function Add() {
     question: question,
     optionOne: optionOne,
     optionTwo: optionTwo,
-    optionThree: optionThree
+    optionThree: optionThree,
+    votes: []
   };
 
   async function handleSubmit(event) {
@@ -36,7 +38,7 @@ export default function Add() {
   return (
     <>
       <Card>
-        <form className="add-form" onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
           <input
             className="add-form_input add-form_input-question"
             type="text"
@@ -77,7 +79,7 @@ export default function Add() {
           <Button type="submit">
             <strong>Create Poll</strong>
           </Button>
-        </form>
+        </Form>
         <div className="redirect-container">
           <RedirectButton
             name="Go to voting"
