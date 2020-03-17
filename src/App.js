@@ -14,13 +14,13 @@ function App() {
         <Header />
         <main className="main">
           <Switch>
-            <Route path="/polls/:pollId">
+            <Route exact path="/polls/:pollId">
               <Result />
             </Route>
-            <Route path="/add">
+            <Route exact path="/add">
               <Add />
             </Route>
-            <Route path="/vote">
+            <Route exact path="/polls/:pollId/vote">
               <Vote />
             </Route>
             <Route exact path="/">
