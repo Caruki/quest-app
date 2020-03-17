@@ -35,6 +35,18 @@ export const FormInputQuestion = styled(FormInput)`
   width: 100%;
   background-color: rgba(228, 230, 250, 1);
 `;
+export const FormVoteQuestion = styled.div`
+  margin-bottom: 30px;
+  padding-left: 15px;
+  outline: none;
+  border: transparent;
+  color: rgba(124, 37, 54, 1);
+  font-size: 0.8rem;
+  border-radius: 30px;
+  height: 65px;
+  width: 100%;
+  background-color: rgba(228, 230, 250, 1);
+`;
 
 export const FormInputAnswer = styled(FormInput)`
   background-color: rgba(228, 230, 250, 1);
@@ -43,5 +55,3 @@ export const FormInputAnswer = styled(FormInput)`
   padding: 10px;
   text-align: center;
 `;
-
-export default Form;
