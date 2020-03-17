@@ -17,8 +17,8 @@ const ButtonStyling = styled.button`
   margin-left: 10px;
   margin-right: 10px;
 
-  :active {
-    background-color: rgba(164, 173, 235, 1);
+  &:hover {
+    background-color: darken(rgba(164, 173, 235, 1), 50%);
   }
 `;
 
