@@ -16,7 +16,7 @@ export const Form = styled.form`
 
 const baseFormQuestion = css`
   outline: none;
-  color: rgba(124, 37, 54, 1);
+  color: ${props => props.theme.colors.text.font};
   margin-bottom: 30px;
   border-radius: 30px;
   border: transparent;

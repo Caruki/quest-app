@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 
 const Button = styled.button`
-  background-color: rgba(164, 173, 235, 1);
+  background-color: ${props => props.theme.colors.background.button};
   border-radius: 35px;
   width: ${props => (props.variant === 'nav' ? '85%' : '60%')};
   padding: ${props => (props.variant === 'nav' ? '20px' : '10px')};
@@ -15,6 +15,7 @@ const Button = styled.button`
   margin-bottom: 10px;
   margin-left: 10px;
   margin-right: 10px;
+  color: ${props => props.theme.colors.text.button};
 
   &:active {
     background-color: #004c99;

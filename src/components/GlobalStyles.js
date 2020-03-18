@@ -4,12 +4,10 @@ import { Global, css } from '@emotion/core';
 export default function GlobalStyles() {
   return (
     <Global
-      styles={css`
+      styles={theme => css`
         body {
           margin: 0;
-          background-image: linear-gradient(to bottom right, #303e69, #08153b);
-          /* height: 100vh; */
-          overflow: hidden;
+          background-image: ${props => props.theme.colors.background.bodyBg};
           display: flex;
           flex-flow: column nowrap;
           align-items: center;
