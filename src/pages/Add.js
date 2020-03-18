@@ -78,7 +78,7 @@ export default function Add() {
             }}
           />
 
-          <Button type="submit" btnType="submit">
+          <Button variant="submit">
             <strong>Create Poll</strong>
           </Button>
         </Form>

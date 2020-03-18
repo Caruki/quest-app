@@ -68,7 +68,7 @@ const baseFormOutput = css`
   width: 100%;
 `;
 
-export const FormVoteQuestion = styled.div`
+export const FormQuestion = styled.div`
   ${baseFormOutput}
   ${baseFormQuestion}
   margin-bottom: 30px;
@@ -98,5 +98,3 @@ export const FormResultAnswer = styled.div`
   border: none;
   cursor: default;
 `;
-
-export const FormResultQuestion = FormVoteQuestion.withComponent('div');

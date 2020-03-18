@@ -2,7 +2,7 @@ import React from 'react';
 import Button from '../components/Button';
 import { useHistory } from 'react-router-dom';
 
-export default function RedirectButton({ btnType, destination, name }) {
+export default function RedirectButton({ variant, destination, name }) {
   let history = useHistory();
 
   function handleClick(destination) {
@@ -10,7 +10,7 @@ export default function RedirectButton({ btnType, destination, name }) {
   }
 
   return (
-    <Button btnType={btnType} onClick={() => handleClick(destination)}>
+    <Button variant={variant} onClick={() => handleClick(destination)}>
       {name}
     </Button>
   );

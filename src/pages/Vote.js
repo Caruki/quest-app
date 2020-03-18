@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import { useParams, useHistory } from 'react-router-dom';
-import { Form, FormVoteQuestion, FormVoteAnswer } from '../components/Form';
+import { Form, FormQuestion, FormVoteAnswer } from '../components/Form';
 import styled from '@emotion/styled';
 import Button from '../components/Button';
 
@@ -57,7 +57,7 @@ export default function Vote() {
   return (
     <Card>
       <Form onSubmit={handleSubmit}>
-        <FormVoteQuestion>{poll?.question}</FormVoteQuestion>
+        <FormQuestion>{poll?.question}</FormQuestion>
         <Label>
           <Input
             type="radio"

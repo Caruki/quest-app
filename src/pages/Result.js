@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import RedirectButton from '../components/RedirectButton';
-import { Form, FormResultQuestion, FormResultAnswer } from '../components/Form';
+import { Form, FormQuestion, FormResultAnswer } from '../components/Form';
 import { useParams } from 'react-router-dom';
 
 const pollApiURL =
@@ -24,7 +24,7 @@ export default function Result() {
   return (
     <Card>
       <Form>
-        <FormResultQuestion>{poll?.question}</FormResultQuestion>
+        <FormQuestion>{poll?.question}</FormQuestion>
         <FormResultAnswer>{poll?.optionOne}</FormResultAnswer>
         <FormResultAnswer>{poll?.optionTwo}</FormResultAnswer>
         <FormResultAnswer>{poll?.optionThree}</FormResultAnswer>
