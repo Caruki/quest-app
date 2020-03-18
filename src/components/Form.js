@@ -14,9 +14,9 @@ export const Form = styled.form`
   font-family: 'Lato', sans-serif;
 `;
 
-const baseFormQuestion = css`
+const baseFormQuestion = props => css`
   outline: none;
-  color: ${props => props.theme.colors.text.font};
+  color: ${props.theme.colors.text.font};
   margin-bottom: 30px;
   border-radius: 30px;
   border: transparent;
@@ -24,17 +24,18 @@ const baseFormQuestion = css`
   font-weight: 600;
   height: 65px;
   width: 100%;
-  background-color: rgba(228, 230, 250, 1);
+  background-color: ${props.theme.colors.background.formField};
 `;
 
-const baseFormInput = css`
+const baseFormInput = props => css`
   outline: none;
   padding-left: 15px;
   font-size: 0.8rem;
-  color: rgba(124, 37, 54, 1);
+  color: ${props.theme.colors.text.font};
   margin-bottom: 20px;
+  background-color: ${props.theme.colors.background.formField};
   ::placeholder {
-    color: rgba(239, 78, 110, 0.432);
+    color: ${props.theme.colors.text.placeholder};
     font-family: 'Lato', sans-serif;
     font-weight: 300;
   }
@@ -46,21 +47,20 @@ export const FormInputQuestion = styled.input`
 
 export const FormInputAnswer = styled.input`
   ${baseFormInput}
-  background-color: rgba(228, 230, 250, 1);
   height: 30px;
   width: 85%;
   padding: 10px;
   text-align: center;
 `;
 
-const baseFormOutput = css`
+const baseFormOutput = props => css`
   display: flex;
   align-items: center;
   justify-content: center;
   outline: none;
   margin-bottom: 20px;
-  color: #3f4989;
-  background-color: rgba(228, 230, 250, 1);
+  color: ${props.theme.colors.background.active};
+  background-color: ${props.theme.colors.background.formField};
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   border-radius: 30px;
@@ -77,6 +77,7 @@ export const FormQuestion = styled.div`
 
 export const FormVoteAnswer = styled.div`
   ${baseFormOutput}
+  background-color: ${props => props.theme.colors.background.formField};
   font-size: 0.9rem;
   box-shadow: 6px 6px 6px #dcdef85f;
   border: 1px solid #707070;
@@ -84,8 +85,8 @@ export const FormVoteAnswer = styled.div`
   margin: 0px auto 20px auto;
 
   &:active {
-    background-color: #3f4989;
-    color: #a4adeb;
+    background-color: ${props => props.theme.colors.background.active};
+    color: ${props => props.theme.colors.text.active};
     border: none;
   }
 `;
@@ -93,8 +94,8 @@ export const FormVoteAnswer = styled.div`
 export const FormResultAnswer = styled.div`
   ${baseFormOutput}
   width: 85%;
-  background-color: #3f4989;
-  color: #a4adeb;
+  background-color: ${props => props.theme.colors.background.active};
+  color: ${props => props.theme.colors.text.active};
   border: none;
   cursor: default;
 `;

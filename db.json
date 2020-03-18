@@ -21,7 +21,9 @@
         null,
         "optionOne",
         "optionTwo",
-        null
+        null,
+        "optionOne",
+        "optionThree"
       ]
     },
     {
@@ -39,6 +41,14 @@
       "optionThree": "",
       "id": 4,
       "votes": []
+    },
+    {
+      "question": "",
+      "optionOne": "",
+      "optionTwo": "",
+      "optionThree": "",
+      "votes": [],
+      "id": 5
     }
   ]
 }
