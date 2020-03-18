@@ -9,8 +9,8 @@ import Polls from './pages/Home';
 import styled from '@emotion/styled';
 import GlobalStyles from './components/GlobalStyles';
 import { ThemeProvider } from 'emotion-theming';
-import { colored } from './themes/colored';
-// import { blackwhite } from './themes/bw';
+import colored from './themes/colored';
+import { blackwhite } from './themes/blackwhite';
 
 const AppContainer = styled.div`
   display: flex;
@@ -26,12 +26,18 @@ const Main = styled.main`
 `;
 
 function App() {
+  const [theme, setTheme] = React.useState(colored);
+
   return (
-    <ThemeProvider theme={colored}>
+    <ThemeProvider theme={theme}>
       <Router>
         <GlobalStyles />
         <AppContainer>
-          <AppHeader />
+          <AppHeader
+            onThemeButtonClick={() => {
+              setTheme(theme === colored ? blackwhite : colored);
+            }}
+          />
           <Main>
             <Switch>
               <Route exact path="/polls/:pollId/result">
