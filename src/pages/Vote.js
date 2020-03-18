@@ -1,23 +1,9 @@
 import React from 'react';
 import Card from '../components/Card';
 import { useParams, useHistory } from 'react-router-dom';
-import { Form, FormQuestion, FormVoteAnswer } from '../components/Form';
-import styled from '@emotion/styled';
+import { Form, FormQuestion } from '../components/Form';
 import Button from '../components/Button';
-
-const Label = styled.label`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  display: block;
-  width: 100%;
-  cursor: pointer;
-`;
-
-const Input = styled.input`
-  opacity: 0;
-  position: absolute;
-`;
+import RadioInput from '../components/RadioInput';
 
 const pollApiURL =
   process.env.REACT_APP_POLLS_API ||
@@ -53,42 +39,23 @@ export default function Vote() {
     });
     history.push(`/polls/${poll.id}/result`);
   }
+  const answerOptions = ['optionOne', 'optionTwo', 'optionThree'];
 
   return (
     <Card>
       <Form onSubmit={handleSubmit}>
         <FormQuestion>{poll?.question}</FormQuestion>
-        <Label>
-          <Input
-            type="radio"
-            name="answer"
-            value="optionOne"
-            checked={answer === 'optionOne'}
+        {answerOptions.map(option => (
+          <RadioInput
+            key={option}
+            checked={answer === option}
             onChange={event => setAnswer(event.target.value)}
-          />
-          <FormVoteAnswer>{poll?.optionOne}</FormVoteAnswer>
-        </Label>
-        <Label>
-          <Input
-            type="radio"
+            value={option}
+            label={poll?.[option]}
             name="answer"
-            value="optionTwo"
-            checked={answer === 'optionTwo'}
-            onChange={event => setAnswer(event.target.value)}
           />
-          <FormVoteAnswer>{poll?.optionTwo}</FormVoteAnswer>
-        </Label>
-        <Label>
-          <Input
-            type="radio"
-            name="answer"
-            value="optionThree"
-            checked={answer === 'optionThree'}
-            onChange={event => setAnswer(event.target.value)}
-          />
-          <FormVoteAnswer>{poll?.optionThree}</FormVoteAnswer>
-        </Label>
-        <Button>Vote {answer}</Button>
+        ))}
+        <Button>Vote</Button>
       </Form>
     </Card>
   );

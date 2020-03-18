@@ -12,7 +12,6 @@ import { ThemeProvider } from 'emotion-theming';
 import colored from './themes/colored';
 import { blackwhite } from './themes/blackwhite';
 
-
 const AppContainer = styled.div`
   display: flex;
   flex-flow: column nowrap;
