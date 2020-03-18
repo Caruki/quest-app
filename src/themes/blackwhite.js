@@ -5,7 +5,7 @@ export const blackwhite = {
       button: '#212126'
     },
     text: {
-      font: 'rgba(124, 37, 54, 1)',
+      font: '#212126',
       heading: '#f3cfd6',
       button: '#f3f2fc'
     }
