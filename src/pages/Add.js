@@ -1,8 +1,16 @@
 import React from 'react';
-import './Add.css';
 import Card from '../components/Card';
 import RedirectButton from '../components/RedirectButton';
 import Button from '../components/Button';
+import { Form, FormInputQuestion, FormInputAnswer } from '../components/Form';
+import styled from '@emotion/styled';
+
+const RedirectContainer = styled.div`
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-evenly;
+  width: 90%;
+`;
 
 export default function Add() {
   const [question, setQuestion] = React.useState('');
@@ -14,7 +22,8 @@ export default function Add() {
     question: question,
     optionOne: optionOne,
     optionTwo: optionTwo,
-    optionThree: optionThree
+    optionThree: optionThree,
+    votes: []
   };
 
   async function handleSubmit(event) {
@@ -36,9 +45,8 @@ export default function Add() {
   return (
     <>
       <Card>
-        <form className="add-form" onSubmit={handleSubmit}>
-          <input
-            className="add-form_input add-form_input-question"
+        <Form onSubmit={handleSubmit}>
+          <FormInputQuestion
             type="text"
             placeholder="Enter your question"
             value={question}
@@ -46,8 +54,7 @@ export default function Add() {
               setQuestion(event.target.value);
             }}
           />
-          <input
-            className="add-form_input add-form_input-answer"
+          <FormInputAnswer
             type="text"
             placeholder="First answer option"
             value={optionOne}
@@ -55,8 +62,7 @@ export default function Add() {
               setOptionOne(event.target.value);
             }}
           />
-          <input
-            className="add-form_input add-form_input-answer"
+          <FormInputAnswer
             type="text"
             placeholder="Second answer option"
             value={optionTwo}
@@ -64,8 +70,7 @@ export default function Add() {
               setOptionTwo(event.target.value);
             }}
           />
-          <input
-            className="add-form_input add-form_input-answer"
+          <FormInputAnswer
             type="text"
             placeholder="Third answer option"
             value={optionThree}
@@ -74,11 +79,11 @@ export default function Add() {
             }}
           />
 
-          <Button type="submit">
+          <Button type="submit" btnType="submit">
             <strong>Create Poll</strong>
           </Button>
-        </form>
-        <div className="redirect-container">
+        </Form>
+        <RedirectContainer>
           <RedirectButton
             name="Go to voting"
             destination="/vote"
@@ -87,7 +92,7 @@ export default function Add() {
             name="See results of this poll"
             destination="/polls/:pollId"
           ></RedirectButton>
-        </div>
+        </RedirectContainer>
       </Card>
     </>
   );

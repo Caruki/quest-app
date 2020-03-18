@@ -1,25 +1,36 @@
 {
   "polls": [
     {
-      "id": 1,
       "question": "How much is the fish?",
       "answerOne": "8$",
       "answerTwo": "5 Pounds",
-      "answerThree": "99 bucks"
+      "answerThree": "99 bucks",
+      "id": 1,
+      "votes": []
     },
     {
       "question": "What is your favourite food?",
       "optionOne": "Burger",
       "optionTwo": "Pasta",
       "optionThree": "Pizza",
-      "id": 2
+      "id": 2,
+      "votes": []
     },
     {
       "question": "What is your favourite place?",
       "optionOne": "Home",
       "optionTwo": "School",
       "optionThree": "Library",
-      "id": 3
+      "id": 3,
+      "votes": []
+    },
+    {
+      "question": "",
+      "optionOne": "",
+      "optionTwo": "",
+      "optionThree": "",
+      "id": 4,
+      "votes": []
     }
   ]
 }

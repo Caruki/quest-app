@@ -1,34 +1,47 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import './App.css';
-import Header from './components/header/Header';
+import AppHeader from './components/AppHeader';
 import Add from './pages/Add';
 import Vote from './pages/Vote';
 import Result from './pages/Result';
 import Home from './pages/Home';
+import styled from '@emotion/styled';
+
+const AppContainer = styled.div`
+  display: flex;
+  flex-flow: column nowrap;
+  height: 100vh;
+`;
+
+const Main = styled.main`
+  overflow: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+`;
 
 function App() {
   return (
     <Router>
-      <div className="container">
-        <Header />
-        <main className="main">
+      <AppContainer>
+        <AppHeader />
+        <Main>
           <Switch>
-            <Route path="/polls/:pollId">
+            <Route exact path="/polls/:pollId">
               <Result />
             </Route>
-            <Route path="/add">
+            <Route exact path="/add">
               <Add />
             </Route>
-            <Route path="/vote">
+            <Route exact path="/polls/:pollId/vote">
               <Vote />
             </Route>
             <Route exact path="/">
               <Home />
             </Route>
           </Switch>
-        </main>
-      </div>
+        </Main>
+      </AppContainer>
     </Router>
   );
 }
