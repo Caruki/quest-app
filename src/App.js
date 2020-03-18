@@ -33,7 +33,7 @@ function App() {
             <Route exact path="/polls/:pollId/result">
               <Result />
             </Route>
-            <Route path="/add">
+            <Route exact path="/add">
               <Add />
             </Route>
             <Route exact path="/polls">

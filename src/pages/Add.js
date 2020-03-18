@@ -22,7 +22,8 @@ export default function Add() {
     question: question,
     optionOne: optionOne,
     optionTwo: optionTwo,
-    optionThree: optionThree
+    optionThree: optionThree,
+    votes: []
   };
 
   async function handleSubmit(event) {
