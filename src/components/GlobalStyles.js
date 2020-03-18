@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from '@emotion/core';
+import { Global, css } from '@emotion/core';
 
 export default function GlobalStyles() {
   return (
