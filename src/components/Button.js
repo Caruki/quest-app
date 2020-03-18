@@ -18,7 +18,7 @@ const Button = styled.button`
   color: ${props => props.theme.colors.text.button};
 
   &:active {
-    background-color: #004c99;
+    background-color: ${props => props.theme.colors.background.click};
   }
 `;
 

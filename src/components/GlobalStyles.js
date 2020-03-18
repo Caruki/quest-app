@@ -7,7 +7,7 @@ export default function GlobalStyles() {
       styles={theme => css`
         body {
           margin: 0;
-          background-image: ${props => props.theme.colors.background.bodyBg};
+          background-image: ${theme.colors.background.body};
           display: flex;
           flex-flow: column nowrap;
           align-items: center;

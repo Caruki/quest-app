@@ -1,13 +1,21 @@
-export const colored = {
+
+const colored = {
   colors: {
     background: {
-      bodyBg: 'linear-gradient(to bottom right, #303e69, #08153b)',
-      button: 'rgba(164, 173, 235, 1)'
+      body: 'linear-gradient(to right bottom, #303e69, #08153b)',
+      button: 'rgba(164, 173, 235, 1)',
+      active: '#3f4989',
+      formField: 'rgba(228, 230, 250, 1)',
+      click: '#3f4989'
     },
     text: {
-      font: 'rgba(124, 37, 54, 1)',
+      font: '#7C2536',
+      placeholder: 'rgba(239, 78, 110, 0.432)',
       heading: '#f3cfd6',
-      button: '#08153B'
+      button: '#08153B',
+      active: '#a4adeb;'
     }
   }
 };
+export default colored;
+
