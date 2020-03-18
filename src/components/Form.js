@@ -87,11 +87,9 @@ export const FormVoteAnswer = styled.div`
       ? props.theme.colors.text.active
       : props.theme.colors.background.active};
   box-shadow: 6px 6px 6px #dcdef85f;
-  
   width: 85%;
   margin: 0px auto 20px auto;
-  border: ${props => (props.status ? 'none' : 'solid')};
-  border: 1px solid #707070;
+  border: transparent;
 
 `;
 
@@ -100,6 +98,6 @@ export const FormResultAnswer = styled.div`
   width: 85%;
   background-color: ${props => props.theme.colors.background.active};
   color: ${props => props.theme.colors.text.active};
-  border: none;
+  border: transparent;
   cursor: default;
 `;
