@@ -1,3 +1,4 @@
+
 const colored = {
   colors: {
     background: {
@@ -17,3 +18,4 @@ const colored = {
   }
 };
 export default colored;
+
