@@ -12,14 +12,16 @@
       "optionOne": "Burger",
       "optionTwo": "Pasta",
       "optionThree": "Pizza",
-      "id": 2
+      "id": 2,
+      "votes": [null]
     },
     {
       "question": "What is your favourite place?",
       "optionOne": "Home",
       "optionTwo": "School",
       "optionThree": "Library",
-      "id": 3
+      "id": 3,
+      "votes": []
     }
   ]
 }

@@ -1,7 +1,6 @@
-import React from 'react';
 import styled from '@emotion/styled';
 
-const ButtonStyling = styled.button`
+const Button = styled.button`
   background-color: rgba(164, 173, 235, 1);
   border-radius: 35px;
   width: ${props => (props.btnType === 'nav' ? '85%' : '60%')};
@@ -17,13 +16,9 @@ const ButtonStyling = styled.button`
   margin-left: 10px;
   margin-right: 10px;
 
-  &:hover {
-    background-color: darken(rgba(164, 173, 235, 1), 50%);
+  &:active {
+    background-color: #004c99;
   }
 `;
-
-const Button = ({ btnType, ...props }) => {
-  return <ButtonStyling btnType={btnType} {...props} />;
-};
 
 export default Button;

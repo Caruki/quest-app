@@ -16,7 +16,9 @@ function AppHeader() {
   return (
     <Header>
       <LogoFlipped src={ChimeraFlipped} alt="logo"></LogoFlipped>
-      <Title>The Questing Beast</Title>
+      <Title as="a" href="/">
+        The Questing Beast
+      </Title>
       <Logo src={Chimera} alt="logo"></Logo>
     </Header>
   );
