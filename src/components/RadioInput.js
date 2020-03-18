@@ -16,10 +16,18 @@ const Input = styled.input`
   position: absolute;
 `;
 const RadioInput = ({ checked, label, ...inputProps }) => {
+  const [clickStatus, setStatus] = React.useState(false);
   return (
     <Label>
       <Input type="radio" checked={checked} {...inputProps} />
-      <FormVoteAnswer>{label}</FormVoteAnswer>
+      <FormVoteAnswer
+        onClick={() => {
+          setStatus(checked ? true : false);
+        }}
+        status={clickStatus}
+      >
+        {label}
+      </FormVoteAnswer>
     </Label>
   );
 };
