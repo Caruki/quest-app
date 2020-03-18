@@ -13,7 +13,13 @@
       "optionTwo": "Pasta",
       "optionThree": "Pizza",
       "id": 2,
-      "votes": [null]
+      "votes": [
+        null,
+        null,
+        null,
+        null,
+        "optionOne"
+      ]
     },
     {
       "question": "What is your favourite place?",

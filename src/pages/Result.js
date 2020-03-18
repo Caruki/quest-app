@@ -1,10 +1,8 @@
 import React from 'react';
 import Card from '../components/Card';
 import RedirectButton from '../components/RedirectButton';
+import { Form, FormResultQuestion, FormResultAnswer } from '../components/Form';
 import { useParams } from 'react-router-dom';
-import { Form, FormVoteQuestion } from '../components/Form';
-
-const FormResultQuestion = FormVoteQuestion.withComponent('div');
 
 const pollApiURL =
   process.env.REACT_APP_POLLS_API ||
@@ -27,9 +25,9 @@ export default function Result() {
     <Card>
       <Form>
         <FormResultQuestion>{poll?.question}</FormResultQuestion>
-        <div>{poll?.optionOne}</div>
-        <div>{poll?.optionTwo}</div>
-        <div>{poll?.optionThree}</div>
+        <FormResultAnswer>{poll?.optionOne}</FormResultAnswer>
+        <FormResultAnswer>{poll?.optionTwo}</FormResultAnswer>
+        <FormResultAnswer>{poll?.optionThree}</FormResultAnswer>
       </Form>
       <RedirectButton
         name="Create your own poll"
