@@ -1,6 +1,7 @@
 import React from 'react';
 import Card from '../components/Card';
 import RedirectButton from '../components/RedirectButton';
+import { Form, FormQuestion, FormResultAnswer } from '../components/Form';
 import { useParams } from 'react-router-dom';
 
 const pollApiURL =
@@ -22,11 +23,12 @@ export default function Result() {
 
   return (
     <Card>
-      {poll?.question}
-      <div>{poll?.optionOne}</div>
-      <div>{poll?.optionTwo}</div>
-      <div>{poll?.optionThree}</div>
-
+      <Form>
+        <FormQuestion>{poll?.question}</FormQuestion>
+        <FormResultAnswer>{poll?.optionOne}</FormResultAnswer>
+        <FormResultAnswer>{poll?.optionTwo}</FormResultAnswer>
+        <FormResultAnswer>{poll?.optionThree}</FormResultAnswer>
+      </Form>
       <RedirectButton
         name="Create your own poll"
         destination="/add"

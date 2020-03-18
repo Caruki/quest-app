@@ -1,12 +1,17 @@
 import React from 'react';
 import Card from '../components/Card';
 import { useParams, useHistory } from 'react-router-dom';
-import { Form, FormVoteQuestion } from '../components/Form';
+import { Form, FormQuestion, FormVoteAnswer } from '../components/Form';
 import styled from '@emotion/styled';
 import Button from '../components/Button';
 
 const Label = styled.label`
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
   display: block;
+  width: 100%;
+  cursor: pointer;
 `;
 
 const Input = styled.input`
@@ -35,6 +40,7 @@ export default function Vote() {
 
   async function handleSubmit(event) {
     event.preventDefault();
+
     const updatedPoll = { ...poll };
     updatedPoll.votes.push(answer);
 
@@ -45,13 +51,13 @@ export default function Vote() {
       },
       body: JSON.stringify(updatedPoll)
     });
-    history.push(`/polls/${poll.id}`);
+    history.push(`/polls/${poll.id}/result`);
   }
 
   return (
     <Card>
       <Form onSubmit={handleSubmit}>
-        <FormVoteQuestion value={poll?.question}></FormVoteQuestion>
+        <FormQuestion>{poll?.question}</FormQuestion>
         <Label>
           <Input
             type="radio"
@@ -60,7 +66,7 @@ export default function Vote() {
             checked={answer === 'optionOne'}
             onChange={event => setAnswer(event.target.value)}
           />
-          {poll?.optionOne}
+          <FormVoteAnswer>{poll?.optionOne}</FormVoteAnswer>
         </Label>
         <Label>
           <Input
@@ -70,7 +76,7 @@ export default function Vote() {
             checked={answer === 'optionTwo'}
             onChange={event => setAnswer(event.target.value)}
           />
-          {poll?.optionTwo}
+          <FormVoteAnswer>{poll?.optionTwo}</FormVoteAnswer>
         </Label>
         <Label>
           <Input
@@ -80,9 +86,9 @@ export default function Vote() {
             checked={answer === 'optionThree'}
             onChange={event => setAnswer(event.target.value)}
           />
-          {poll?.optionThree}
+          <FormVoteAnswer>{poll?.optionThree}</FormVoteAnswer>
         </Label>
-        <Button>Vote</Button>
+        <Button>Vote {answer}</Button>
       </Form>
     </Card>
   );

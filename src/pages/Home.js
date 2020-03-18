@@ -50,17 +50,17 @@ export default function Home() {
       </WelcomeTextContainer>
       <NavButtonContainer>
         <RedirectButton
-          btnType="nav"
+          variant="nav"
           name="Create your own poll"
           destination="/add"
         ></RedirectButton>
         <RedirectButton
-          btnType="nav"
+          variant="nav"
           name="Vote in one of our polls"
           destination="/vote"
         ></RedirectButton>
         <RedirectButton
-          btnType="nav"
+          variant="nav"
           name="See the results of your poll"
           destination="/polls/:pollId"
         ></RedirectButton>
