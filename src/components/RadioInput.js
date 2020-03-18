@@ -17,17 +17,21 @@ const Input = styled.input`
 `;
 const RadioInput = ({ checked, label, ...inputProps }) => {
   const [clickStatus, setStatus] = React.useState(false);
+  React.useEffect(() => {
+    function changeColour() {
+      if (checked) {
+        setStatus(true);
+      } else {
+        setStatus(false);
+      }
+    }
+    changeColour();
+  }, [checked]);
+
   return (
     <Label>
       <Input type="radio" checked={checked} {...inputProps} />
-      <FormVoteAnswer
-        onClick={() => {
-          setStatus(checked ? true : false);
-        }}
-        status={clickStatus}
-      >
-        {label}
-      </FormVoteAnswer>
+      <FormVoteAnswer status={clickStatus}>{label}</FormVoteAnswer>
     </Label>
   );
 };
