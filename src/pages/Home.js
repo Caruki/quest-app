@@ -13,7 +13,7 @@ const NavButtonContainer = styled.div`
 
 const WelcomeHeading = styled.h1`
   font-size: 1.6rem;
-  color: #f3cfd6;
+  color: ${props => props.theme.colors.text.heading};
   font-family: 'Fondamento', cursive;
   letter-spacing: 0.5rem;
   text-align: center;
