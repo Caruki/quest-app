@@ -58,7 +58,7 @@ const baseFormOutput = props => css`
   align-items: center;
   justify-content: center;
   outline: none;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: ${props.theme.colors.background.active};
   background-color: ${props.theme.colors.background.formField};
   font-family: 'Lato', sans-serif;
@@ -82,7 +82,7 @@ export const FormVoteAnswer = styled.div`
   box-shadow: 6px 6px 6px #dcdef85f;
   border: 1px solid #707070;
   width: 85%;
-  margin: 0px auto 20px auto;
+  margin: 0px auto 0px auto;
 
   &:active {
     background-color: ${props => props.theme.colors.background.active};
