@@ -77,18 +77,20 @@ export const FormQuestion = styled.div`
 
 export const FormVoteAnswer = styled.div`
   ${baseFormOutput}
-  background-color: ${props => props.theme.colors.background.formField};
+  background-color: ${props =>
+    props.status
+      ? props.theme.colors.background.formFieldChosen
+      : props.theme.colors.background.formField};
   font-size: 0.9rem;
+  color: ${props =>
+    props.status
+      ? props.theme.colors.text.active
+      : props.theme.colors.background.active};
   box-shadow: 6px 6px 6px #dcdef85f;
-  border: 1px solid #707070;
   width: 85%;
   margin: 0px auto 0px auto;
 
-  &:active {
-    background-color: ${props => props.theme.colors.background.active};
-    color: ${props => props.theme.colors.text.active};
-    border: none;
-  }
+
 `;
 
 export const FormResultAnswer = styled.div`
@@ -96,6 +98,6 @@ export const FormResultAnswer = styled.div`
   width: 85%;
   background-color: ${props => props.theme.colors.background.active};
   color: ${props => props.theme.colors.text.active};
-  border: none;
+  border: transparent;
   cursor: default;
 `;
