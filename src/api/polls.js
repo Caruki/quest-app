@@ -1,4 +1,4 @@
-export const pollApiURL =
+const pollApiURL =
   process.env.REACT_APP_POLLS_API ||
   'https://my-json-server.typicode.com/Caruki/quest-app/polls';
 
@@ -22,4 +22,16 @@ export async function postPoll(poll) {
   );
   const createdPoll = await response.json();
   return createdPoll;
+}
+
+export async function patchPoll(pollId, updatedPoll) {
+  const response = await fetch(`${pollApiURL}/${pollId}`, {
+    method: 'PATCH',
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
+    body: JSON.stringify(updatedPoll)
+  });
+  const patchedPoll = await response.json();
+  return patchedPoll;
 }

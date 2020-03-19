@@ -4,7 +4,7 @@ import { useParams, useHistory } from 'react-router-dom';
 import { Form, FormQuestion } from '../components/Form';
 import Button from '../components/Button';
 import RadioInput from '../components/RadioInput';
-import { pollApiURL, getPoll } from '../api/polls';
+import { getPoll, patchPoll } from '../api/polls';
 
 export default function Vote() {
   const { pollId } = useParams();
@@ -22,13 +22,7 @@ export default function Vote() {
     const updatedPoll = { ...poll };
     updatedPoll.votes.push(answer);
 
-    await fetch(`${pollApiURL}/${pollId}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json;charset=utf-8'
-      },
-      body: JSON.stringify(updatedPoll)
-    });
+    await patchPoll(pollId, updatedPoll);
     history.push(`/polls/${poll.id}/result`);
   }
   const answerOptions = ['optionOne', 'optionTwo', 'optionThree'];

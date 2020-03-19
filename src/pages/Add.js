@@ -81,7 +81,7 @@ export default function Add() {
           ></RedirectButton>
           <RedirectButton
             name="See results of this poll"
-            destination="/polls/:pollId"
+            destination={`/polls/${createdPoll.id}/result`}
           ></RedirectButton>
         </RedirectContainer>
       </Card>
