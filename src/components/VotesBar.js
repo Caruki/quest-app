@@ -41,7 +41,7 @@ const VotesBar = ({ votes }) => {
   return (
     <OuterBar>
       <Filler votes={voteCount} />
-      <Votes>{pluralize('vote', { votes }, true)}</Votes>
+      <Votes>{pluralize('vote', votes, true)}</Votes>
     </OuterBar>
   );
 };
