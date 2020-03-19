@@ -1,7 +1,9 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import pluralize from 'pluralize';
 
 const OuterBar = styled.div`
+  display: flex;
   position: relative;
   height: 20px;
   width: inherit;
@@ -17,6 +19,12 @@ const Filler = styled.div`
   transition: width 0.2s ease-in;
   width: ${props => (props.votes ? props.votes : 0)}%;
 `;
+const Votes = styled.div`
+  font-size: 0.7rem;
+  color: ${props => props.theme.colors.text.active};
+  align-self: center;
+  margin-left: 5px;
+`;
 
 const VotesBar = ({ votes }) => {
   const [voteCount, setVotes] = React.useState(0);
@@ -24,7 +32,7 @@ const VotesBar = ({ votes }) => {
   React.useEffect(() => {
     function countVotes() {
       if (votes) {
-        setVotes(Math.floor((votes / 20) * 100));
+        setVotes(Math.floor((votes / 40) * 100));
       }
     }
     countVotes();
@@ -33,6 +41,7 @@ const VotesBar = ({ votes }) => {
   return (
     <OuterBar>
       <Filler votes={voteCount} />
+      <Votes>{pluralize('vote', { votes }, true)}</Votes>
     </OuterBar>
   );
 };
