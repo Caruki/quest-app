@@ -1,4 +1,3 @@
-
 const colored = {
   colors: {
     background: {
@@ -6,6 +5,7 @@ const colored = {
       button: 'rgba(164, 173, 235, 1)',
       active: '#3f4989',
       formField: 'rgba(228, 230, 250, 1)',
+      formFieldChosen: '#3f4989',
       click: '#3f4989'
     },
     text: {
@@ -18,4 +18,3 @@ const colored = {
   }
 };
 export default colored;
-
