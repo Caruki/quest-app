@@ -21,13 +21,28 @@ export default function Result() {
     getPoll();
   }, [pollId]);
 
+  const answerOneVotes = poll?.votes.filter(vote => vote === 'optionOne')
+    .length;
+  const answerTwoVotes = poll?.votes.filter(vote => vote === 'optionTwo')
+    .length;
+  const answerThreeVotes = poll?.votes.filter(vote => vote === 'optionThree')
+    .length;
+
   return (
     <Card>
       <Form>
-        <FormQuestion>{poll?.question}</FormQuestion>
-        <FormResultAnswer>{poll?.optionOne}</FormResultAnswer>
-        <FormResultAnswer>{poll?.optionTwo}</FormResultAnswer>
-        <FormResultAnswer>{poll?.optionThree}</FormResultAnswer>
+        <FormQuestion>
+          {poll?.question} ({poll?.votes.length} Votes)
+        </FormQuestion>
+        <FormResultAnswer>
+          {poll?.optionOne} ({answerOneVotes} votes)
+        </FormResultAnswer>
+        <FormResultAnswer>
+          {poll?.optionTwo} ({answerTwoVotes} votes)
+        </FormResultAnswer>
+        <FormResultAnswer>
+          {poll?.optionThree} ({answerThreeVotes} votes)
+        </FormResultAnswer>
       </Form>
       <RedirectButton
         name="Create your own poll"
