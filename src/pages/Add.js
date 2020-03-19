@@ -18,6 +18,7 @@ export default function Add() {
   const [optionOne, setOptionOne] = React.useState('');
   const [optionTwo, setOptionTwo] = React.useState('');
   const [optionThree, setOptionThree] = React.useState('');
+  const [createdPoll, setCreatedPoll] = React.useState(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -30,7 +31,8 @@ export default function Add() {
     };
 
     const createdPoll = await postPoll(poll);
-    alert(`A new poll with the ID ${createdPoll.id} was created!`);
+    setCreatedPoll(createdPoll);
+    // alert(`A new poll with the ID ${createdPoll.id} was created!`);
   }
 
   return (
@@ -74,16 +76,18 @@ export default function Add() {
             <strong>Create Poll</strong>
           </Button>
         </Form>
-        <RedirectContainer>
-          <RedirectButton
-            name="Go to voting"
-            destination={`/polls/${createdPoll.id}/vote`}
-          ></RedirectButton>
-          <RedirectButton
-            name="See results of this poll"
-            destination={`/polls/${createdPoll.id}/result`}
-          ></RedirectButton>
-        </RedirectContainer>
+        {createdPoll && (
+          <RedirectContainer>
+            <RedirectButton
+              name="Go to voting"
+              destination={`/polls/${createdPoll.id}/vote`}
+            ></RedirectButton>
+            <RedirectButton
+              name="See results of this poll"
+              destination={`/polls/${createdPoll.id}/result`}
+            ></RedirectButton>
+          </RedirectContainer>
+        )}
       </Card>
     </>
   );
