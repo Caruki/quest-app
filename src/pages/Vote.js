@@ -23,7 +23,7 @@ export default function Vote() {
     updatedPoll.votes.push(answer);
 
     await patchPoll(pollId, updatedPoll);
-    history.push(`/polls/${poll.id}/result`);
+    history.push(`/polls/${poll.id}/result/?myanswer=${answer}`);
   }
   const answerOptions = ['optionOne', 'optionTwo', 'optionThree'];
 
