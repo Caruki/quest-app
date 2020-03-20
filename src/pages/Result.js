@@ -9,34 +9,43 @@ import LoadingAnimation from '../components/LoadingAnimation';
 export default function Result() {
   const { pollId } = useParams();
   const [poll, setPoll] = React.useState();
-  const [isLoadingGetPoll, setIsLoadingGetPoll] = React.useState(true);
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [errorMessage, setErrorMessage] = React.useState(null);
 
   React.useEffect(() => {
-    setIsLoadingGetPoll(true);
+    setIsLoading(true);
     getPoll(pollId)
       .then(poll => setPoll(poll))
-      .then(() => setIsLoadingGetPoll(false));
+      .catch(error => setErrorMessage(error.message))
+      .finally(() => setIsLoading(false));
   }, [pollId]);
 
-  if (isLoadingGetPoll) {
-    return <LoadingAnimation />;
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
   }
+
   return (
     <Card>
-      <Form>
-        <FormQuestion>{poll?.question}</FormQuestion>
-        <FormResultAnswer>{poll?.optionOne}</FormResultAnswer>
-        <FormResultAnswer>{poll?.optionTwo}</FormResultAnswer>
-        <FormResultAnswer>{poll?.optionThree}</FormResultAnswer>
-      </Form>
-      <RedirectButton
-        name="Create your own poll"
-        destination="/add"
-      ></RedirectButton>
-      <RedirectButton
-        name="Go back to overview"
-        destination="/"
-      ></RedirectButton>
+      {isLoading ? (
+        <LoadingAnimation />
+      ) : (
+        <>
+          <Form>
+            <FormQuestion>{poll?.question}</FormQuestion>
+            <FormResultAnswer>{poll?.optionOne}</FormResultAnswer>
+            <FormResultAnswer>{poll?.optionTwo}</FormResultAnswer>
+            <FormResultAnswer>{poll?.optionThree}</FormResultAnswer>
+          </Form>
+          <RedirectButton
+            name="Create your own poll"
+            destination="/add"
+          ></RedirectButton>
+          <RedirectButton
+            name="Go back to overview"
+            destination="/"
+          ></RedirectButton>
+        </>
+      )}
     </Card>
   );
 }

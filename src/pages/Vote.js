@@ -14,23 +14,33 @@ export default function Vote() {
   const [answer, setAnswer] = React.useState(null);
   const [isLoadingPatchPoll, setIsLoadingPatchPoll] = React.useState(false);
   const [isLoadingGetPoll, setIsLoadingGetPoll] = React.useState(true);
+  const [errorMessage, setErrorMessage] = React.useState(false);
 
   React.useEffect(() => {
     setIsLoadingGetPoll(true);
-    getPoll(pollId).then(poll => setPoll(poll));
-    setIsLoadingGetPoll(false);
+    getPoll(pollId)
+      .then(poll => setPoll(poll))
+      .catch(error => setErrorMessage(error.message))
+      .finally(() => setIsLoadingGetPoll(false));
   }, [pollId]);
 
   async function handleSubmit(event) {
     event.preventDefault();
+    try {
+      setIsLoadingPatchPoll(true);
 
-    setIsLoadingPatchPoll(true);
+      const updatedPoll = { ...poll };
+      updatedPoll.votes.push(answer);
 
-    const updatedPoll = { ...poll };
-    updatedPoll.votes.push(answer);
+      await patchPoll(pollId, updatedPoll);
+      history.push(`/polls/${poll.id}/result`);
+    } catch (error) {
+      setErrorMessage(error.message);
+    }
+  }
 
-    await patchPoll(pollId, updatedPoll);
-    history.push(`/polls/${poll.id}/result`);
+  if (errorMessage) {
+    return <div>{errorMessage}</div>;
   }
 
   const answerOptions = ['optionOne', 'optionTwo', 'optionThree'];
