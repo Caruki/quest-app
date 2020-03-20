@@ -37,7 +37,7 @@ export default function Vote() {
       },
       body: JSON.stringify(updatedPoll)
     });
-    history.push(`/polls/${poll.id}/result`);
+    history.push(`/polls/${poll.id}/result/?myanswer=${answer}`);
   }
   const answerOptions = ['optionOne', 'optionTwo', 'optionThree'];
 
