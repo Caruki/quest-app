@@ -8,12 +8,12 @@ const OuterBar = styled.div`
   height: 20px;
   width: inherit;
   border-radius: 50px;
-  border: 2px solid ${props => props.theme.colors.background.active};
+  background-color: ${props => props.theme.colors.background.votesBar};
   margin-bottom: 25px;
 `;
 
 const Filler = styled.div`
-  background: ${props => props.theme.colors.text.active};
+  background: ${props => props.theme.colors.text.chosen};
   height: 100%;
   border-radius: 50px;
   transition: width 0.2s ease-in;
@@ -21,7 +21,7 @@ const Filler = styled.div`
 `;
 const Votes = styled.div`
   font-size: 0.7rem;
-  color: ${props => props.theme.colors.text.active};
+  color: ${props => props.theme.colors.text.chosen};
   align-self: center;
   margin-left: 5px;
 `;
