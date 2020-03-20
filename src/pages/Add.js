@@ -4,6 +4,7 @@ import RedirectButton from '../components/RedirectButton';
 import Button from '../components/Button';
 import { Form, FormInputQuestion, FormInputAnswer } from '../components/Form';
 import styled from '@emotion/styled';
+import { postPoll } from '../api/polls';
 
 const RedirectContainer = styled.div`
   display: flex;
@@ -17,31 +18,23 @@ export default function Add() {
   const [optionOne, setOptionOne] = React.useState('');
   const [optionTwo, setOptionTwo] = React.useState('');
   const [optionThree, setOptionThree] = React.useState('');
-
-  const poll = {
-    question: question,
-    optionOne: optionOne,
-    optionTwo: optionTwo,
-    optionThree: optionThree,
-    votes: []
-  };
+  const [createdPoll, setCreatedPoll] = React.useState(null);
 
   async function handleSubmit(event) {
     event.preventDefault();
-    let response = await fetch(
-      process.env.REACT_APP_POLLS_API ||
-        'https://my-json-server.typicode.com/Caruki/quest-app/polls',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(poll)
-      }
-    );
-    let createdPoll = await response.json();
-    alert(`A new poll with the ID ${createdPoll.id} was created!`);
+    const poll = {
+      question: question,
+      optionOne: optionOne,
+      optionTwo: optionTwo,
+      optionThree: optionThree,
+      votes: []
+    };
+
+    const createdPoll = await postPoll(poll);
+    setCreatedPoll(createdPoll);
+    // alert(`A new poll with the ID ${createdPoll.id} was created!`);
   }
+
   return (
     <>
       <Card>
@@ -83,16 +76,18 @@ export default function Add() {
             <strong>Create Poll</strong>
           </Button>
         </Form>
-        <RedirectContainer>
-          <RedirectButton
-            name="Go to voting"
-            destination="/vote"
-          ></RedirectButton>
-          <RedirectButton
-            name="See results of this poll"
-            destination="/polls/:pollId"
-          ></RedirectButton>
-        </RedirectContainer>
+        {createdPoll && (
+          <RedirectContainer>
+            <RedirectButton
+              name="Go to voting"
+              destination={`/polls/${createdPoll.id}/vote`}
+            ></RedirectButton>
+            <RedirectButton
+              name="See results of this poll"
+              destination={`/polls/${createdPoll.id}/result`}
+            ></RedirectButton>
+          </RedirectContainer>
+        )}
       </Card>
     </>
   );

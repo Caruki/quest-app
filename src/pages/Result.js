@@ -4,22 +4,14 @@ import RedirectButton from '../components/RedirectButton';
 import { Form, FormQuestion, FormResultAnswer } from '../components/Form';
 import { useParams, useLocation } from 'react-router-dom';
 import VotesBar from '../components/VotesBar';
-
-const pollApiURL =
-  process.env.REACT_APP_POLLS_API ||
-  'https://my-json-server.typicode.com/Caruki/quest-app/polls';
+import { getPoll } from '../api/polls';
 
 export default function Result() {
   const { pollId } = useParams();
   const [poll, setPoll] = React.useState();
 
   React.useEffect(() => {
-    async function getPoll() {
-      const response = await fetch(`${pollApiURL}/${pollId}`);
-      const poll = await response.json();
-      setPoll(poll);
-    }
-    getPoll();
+    getPoll(pollId).then(poll => setPoll(poll));
   }, [pollId]);
 
   function useQuery() {

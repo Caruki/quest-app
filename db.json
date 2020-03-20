@@ -46,6 +46,14 @@
       "optionThree": "",
       "votes": [],
       "id": 5
+    },
+    {
+      "question": "What is your name?",
+      "optionOne": "name",
+      "optionTwo": "name1",
+      "optionThree": "name2",
+      "votes": [],
+      "id": 6
     }
   ]
 }
