@@ -5,6 +5,7 @@ import { Form, FormQuestion, FormResultAnswer } from '../components/Form';
 import { useParams } from 'react-router-dom';
 import { getPoll } from '../api/polls';
 import LoadingAnimation from '../components/LoadingAnimation';
+import Swal from 'sweetalert2';
 
 export default function Result() {
   const { pollId } = useParams();
@@ -21,14 +22,14 @@ export default function Result() {
   }, [pollId]);
 
   if (errorMessage) {
-    return <div>{errorMessage}</div>;
+    return Swal.fire('Oops...', 'Something went wrong!', 'error');
   }
 
   return (
     <Card>
-      {isLoading ? (
-        <LoadingAnimation />
-      ) : (
+      {/* {errorMessage && { errorMessage }} */}
+      {isLoading && <LoadingAnimation />}
+      {!isLoading && !errorMessage && (
         <>
           <Form>
             <FormQuestion>{poll?.question}</FormQuestion>
