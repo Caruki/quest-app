@@ -16,7 +16,7 @@ export const Form = styled.form`
 
 const baseFormQuestion = props => css`
   outline: none;
-  color: ${props.theme.colors.text.font};
+  color: ${props.theme.colors.text.formQuestion};
   margin-bottom: 30px;
   border-radius: 30px;
   border: transparent;
@@ -31,11 +31,11 @@ const baseFormInput = props => css`
   outline: none;
   padding-left: 15px;
   font-size: 0.8rem;
-  color: ${props.theme.colors.text.font};
+  color: ${props.theme.colors.text.formInput};
   margin-bottom: 20px;
-  background-color: ${props.theme.colors.background.formField};
+  background-color: ${props.theme.colors.background.formInput};
   ::placeholder {
-    color: ${props.theme.colors.text.placeholder};
+    color: ${props.theme.colors.text.formPlaceholder};
     font-family: 'Lato', sans-serif;
     font-weight: 300;
   }
@@ -58,8 +58,8 @@ const baseFormOutput = props => css`
   align-items: center;
   justify-content: center;
   outline: none;
-  margin-bottom: 20px;
-  color: ${props.theme.colors.background.active};
+  margin-bottom: 10px;
+  color: ${props.theme.colors.text.formField};
   background-color: ${props.theme.colors.background.formField};
   font-family: 'Lato', sans-serif;
   font-weight: 400;
@@ -79,25 +79,31 @@ export const FormVoteAnswer = styled.div`
   ${baseFormOutput}
   background-color: ${props =>
     props.status
-      ? props.theme.colors.background.formFieldChosen
+      ? props.theme.colors.background.clicked
       : props.theme.colors.background.formField};
   font-size: 0.9rem;
   color: ${props =>
     props.status
-      ? props.theme.colors.text.active
-      : props.theme.colors.background.active};
+      ? props.theme.colors.text.clicked
+      : props.theme.colors.text.formField};
   box-shadow: 6px 6px 6px #dcdef85f;
   width: 85%;
   margin: 0px auto 20px auto;
-  border: transparent;
+
 
 `;
 
 export const FormResultAnswer = styled.div`
   ${baseFormOutput}
   width: 85%;
-  background-color: ${props => props.theme.colors.background.active};
-  color: ${props => props.theme.colors.text.active};
+  background-color: ${props =>
+    props.chosenAnswer === props.answerIndex
+      ? props.theme.colors.background.chosen
+      : props.theme.colors.background.resultField};
+  color: ${props =>
+    props.chosenAnswer === props.answerIndex
+      ? props.theme.colors.text.chosen
+      : props.theme.colors.text.resultField};
   border: transparent;
   cursor: default;
 `;

@@ -15,20 +15,8 @@
       "optionThree": "Pizza",
       "id": 2,
       "votes": [
-        null,
-        null,
-        null,
-        null,
         "optionOne",
         "optionTwo",
-        null,
-        "optionOne",
-        "optionOne",
-        "optionOne",
-        "optionOne",
-        "optionOne",
-        "optionOne",
-        "optionOne"
       ]
     },
     {
