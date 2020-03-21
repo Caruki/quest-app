@@ -22,7 +22,11 @@ export default function Result() {
   }, [pollId]);
 
   if (errorMessage) {
-    return Swal.fire('Oops...', 'Something went wrong!', 'error');
+    return Swal.fire({
+      titleText: 'Error!',
+      text: errorMessage,
+      icon: 'error'
+    });
   }
 
   return (
