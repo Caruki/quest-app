@@ -32,11 +32,13 @@ export default function Vote() {
       const updatedPoll = { ...poll };
       updatedPoll.votes.push(answer);
 
+
       await patchPoll(pollId, updatedPoll);
-      history.push(`/polls/${poll.id}/result`);
+      history.push(`/polls/${poll.id}/result/?myanswer=${answer}`);
     } catch (error) {
       setErrorMessage(error.message);
     }
+
   }
 
   if (errorMessage) {
