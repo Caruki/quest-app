@@ -21,17 +21,24 @@ export default function Result() {
       .finally(() => setIsLoading(false));
   }, [pollId]);
 
-  if (errorMessage) {
-    return Swal.fire({
-      titleText: 'Error!',
-      text: errorMessage,
-      icon: 'error'
-    });
-  }
+  React.useEffect(() => {
+    if (errorMessage) {
+      Swal.fire({
+        titleText: 'Error!',
+        text: errorMessage,
+        icon: 'error',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEnterKey: false,
+        allowEscapeKey: false
+      });
+    }
+  }, [errorMessage]);
 
   return (
     <Card>
-      {/* {errorMessage && { errorMessage }} */}
       {isLoading && <LoadingAnimation />}
       {!isLoading && !errorMessage && (
         <>
