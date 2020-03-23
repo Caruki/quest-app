@@ -16,11 +16,7 @@
       "id": 2,
       "votes": [
         "optionOne",
-        "optionTwo",
-        "optionOne",
-        "optionThreee",
-        "optionOne",
-        "optionThree"
+        "optionTwo"
       ]
     },
     {
@@ -54,6 +50,16 @@
       "optionThree": "name2",
       "votes": [],
       "id": 6
+    },
+    {
+      "question": "What is your favourite food?",
+      "optionOne": "Pasta",
+      "optionTwo": "Pizza",
+      "optionThree": "Burger",
+      "votes": [
+        "optionTwo"
+      ],
+      "id": 7
     }
   ]
 }

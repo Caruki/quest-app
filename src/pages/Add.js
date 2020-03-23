@@ -19,9 +19,12 @@ export default function Add() {
   const [optionTwo, setOptionTwo] = React.useState('');
   const [optionThree, setOptionThree] = React.useState('');
   const [createdPoll, setCreatedPoll] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
 
   async function handleSubmit(event) {
     event.preventDefault();
+    setIsLoading(true);
+
     const poll = {
       question: question,
       optionOne: optionOne,
@@ -72,7 +75,7 @@ export default function Add() {
             }}
           />
 
-          <Button variant="submit">
+          <Button variant="submit" disabled={isLoading}>
             <strong>Create Poll</strong>
           </Button>
         </Form>

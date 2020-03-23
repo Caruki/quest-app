@@ -38,7 +38,8 @@
   "devDependencies": {
     "emotion-theming": "^10.0.27",
     "json-server": "^0.16.1",
-    "pluralize": "^8.0.0",
-    "prettier": "^1.19.1"
+    "prettier": "^1.19.1",
+    "sweetalert2": "^9.10.3",
+    "pluralize": "^8.0.0"
   }
 }

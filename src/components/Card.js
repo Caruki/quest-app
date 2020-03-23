@@ -5,7 +5,6 @@ const CardStyle = styled.div`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  margin: auto;
   width: 100%;
   background: transparent;
   font-family: 'Lato', sans-serif;

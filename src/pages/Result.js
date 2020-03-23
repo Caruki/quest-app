@@ -5,14 +5,38 @@ import { Form, FormQuestion, FormResultAnswer } from '../components/Form';
 import { useParams, useLocation } from 'react-router-dom';
 import VotesBar from '../components/VotesBar';
 import { getPoll } from '../api/polls';
+import LoadingAnimation from '../components/LoadingAnimation';
+import Swal from 'sweetalert2';
 
 export default function Result() {
   const { pollId } = useParams();
   const [poll, setPoll] = React.useState();
+  const [isLoading, setIsLoading] = React.useState(true);
+  const [errorMessage, setErrorMessage] = React.useState(null);
 
   React.useEffect(() => {
-    getPoll(pollId).then(poll => setPoll(poll));
+    setIsLoading(true);
+    getPoll(pollId)
+      .then(poll => setPoll(poll))
+      .catch(error => setErrorMessage(error.message))
+      .finally(() => setIsLoading(false));
   }, [pollId]);
+
+  React.useEffect(() => {
+    if (errorMessage) {
+      Swal.fire({
+        titleText: 'Error!',
+        text: errorMessage,
+        icon: 'error',
+        showCloseButton: false,
+        showCancelButton: false,
+        showConfirmButton: false,
+        allowOutsideClick: false,
+        allowEnterKey: false,
+        allowEscapeKey: false
+      });
+    }
+  }, [errorMessage]);
 
   function useQuery() {
     return new URLSearchParams(useLocation().search);
@@ -30,31 +54,45 @@ export default function Result() {
 
   return (
     <Card>
-      <Form>
-        <FormQuestion>
-          {poll?.question} ({poll?.votes.length} Votes)
-        </FormQuestion>
-        <FormResultAnswer chosenAnswer={chosenAnswer} answerIndex="optionOne">
-          {poll?.optionOne} ({answerOneVotes} votes)
-        </FormResultAnswer>
-        <VotesBar votes={answerOneVotes} />
-        <FormResultAnswer chosenAnswer={chosenAnswer} answerIndex="optionTwo">
-          {poll?.optionTwo} ({answerTwoVotes} votes)
-        </FormResultAnswer>
-        <VotesBar votes={answerTwoVotes} />
-        <FormResultAnswer chosenAnswer={chosenAnswer} answerIndex="optionThree">
-          {poll?.optionThree} ({answerThreeVotes} votes)
-        </FormResultAnswer>
-        <VotesBar votes={answerThreeVotes} />
-      </Form>
-      <RedirectButton
-        name="Create your own poll"
-        destination="/add"
-      ></RedirectButton>
-      <RedirectButton
-        name="Go back to overview"
-        destination="/"
-      ></RedirectButton>
+      {isLoading && <LoadingAnimation />}
+      {!isLoading && !errorMessage && (
+        <>
+          <Form>
+            <FormQuestion>
+              {poll?.question} ({poll?.votes.length} Votes)
+            </FormQuestion>
+            <FormResultAnswer
+              chosenAnswer={chosenAnswer}
+              answerIndex="optionOne"
+            >
+              {poll?.optionOne} ({answerOneVotes} votes)
+            </FormResultAnswer>
+            <VotesBar votes={answerOneVotes} />
+            <FormResultAnswer
+              chosenAnswer={chosenAnswer}
+              answerIndex="optionTwo"
+            >
+              {poll?.optionTwo} ({answerTwoVotes} votes)
+            </FormResultAnswer>
+            <VotesBar votes={answerTwoVotes} />
+            <FormResultAnswer
+              chosenAnswer={chosenAnswer}
+              answerIndex="optionThree"
+            >
+              {poll?.optionThree} ({answerThreeVotes} votes)
+            </FormResultAnswer>
+            <VotesBar votes={answerThreeVotes} />
+          </Form>
+          <RedirectButton
+            name="Create your own poll"
+            destination="/add"
+          ></RedirectButton>
+          <RedirectButton
+            name="Go back to overview"
+            destination="/"
+          ></RedirectButton>
+        </>
+      )}
     </Card>
   );
 }
