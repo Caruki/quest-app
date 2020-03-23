@@ -57,32 +57,41 @@ export default function Result() {
       {isLoading && <LoadingAnimation />}
       {!isLoading && !errorMessage && (
         <>
-      <Form>
-        <FormQuestion>
-          {poll?.question} ({poll?.votes.length} Votes)
-        </FormQuestion>
-        <FormResultAnswer chosenAnswer={chosenAnswer} answerIndex="optionOne">
-          {poll?.optionOne} ({answerOneVotes} votes)
-        </FormResultAnswer>
-        <VotesBar votes={answerOneVotes} />
-        <FormResultAnswer chosenAnswer={chosenAnswer} answerIndex="optionTwo">
-          {poll?.optionTwo} ({answerTwoVotes} votes)
-        </FormResultAnswer>
-        <VotesBar votes={answerTwoVotes} />
-        <FormResultAnswer chosenAnswer={chosenAnswer} answerIndex="optionThree">
-          {poll?.optionThree} ({answerThreeVotes} votes)
-        </FormResultAnswer>
-        <VotesBar votes={answerThreeVotes} />
-      </Form>
-      <RedirectButton
-        name="Create your own poll"
-        destination="/add"
-      ></RedirectButton>
-      <RedirectButton
-        name="Go back to overview"
-        destination="/"
-      ></RedirectButton>
-  </>
+          <Form>
+            <FormQuestion>
+              {poll?.question} ({poll?.votes.length} Votes)
+            </FormQuestion>
+            <FormResultAnswer
+              chosenAnswer={chosenAnswer}
+              answerIndex="optionOne"
+            >
+              {poll?.optionOne} ({answerOneVotes} votes)
+            </FormResultAnswer>
+            <VotesBar votes={answerOneVotes} />
+            <FormResultAnswer
+              chosenAnswer={chosenAnswer}
+              answerIndex="optionTwo"
+            >
+              {poll?.optionTwo} ({answerTwoVotes} votes)
+            </FormResultAnswer>
+            <VotesBar votes={answerTwoVotes} />
+            <FormResultAnswer
+              chosenAnswer={chosenAnswer}
+              answerIndex="optionThree"
+            >
+              {poll?.optionThree} ({answerThreeVotes} votes)
+            </FormResultAnswer>
+            <VotesBar votes={answerThreeVotes} />
+          </Form>
+          <RedirectButton
+            name="Create your own poll"
+            destination="/add"
+          ></RedirectButton>
+          <RedirectButton
+            name="Go back to overview"
+            destination="/"
+          ></RedirectButton>
+        </>
       )}
     </Card>
   );
