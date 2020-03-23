@@ -27,7 +27,7 @@ const LoadingSpinDiv = styled.div`
   box-sizing: content-box;
 `;
 
-const LoadingSpinH = styled.div`
+const LoadingSpinWrapper = styled.div`
   width: 84px;
   height: 84px;
   display: inline-block;
@@ -46,10 +46,10 @@ const LoadingSpin = styled.div`
 
 export default function Loading() {
   return (
-    <LoadingSpinH>
+    <LoadingSpinWrapper>
       <LoadingSpin>
         <LoadingSpinDiv></LoadingSpinDiv>
       </LoadingSpin>
-    </LoadingSpinH>
+    </LoadingSpinWrapper>
   );
 }
